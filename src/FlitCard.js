@@ -1,8 +1,8 @@
 import React from "react";
 
 const FlipCard = () => {
-  let chosenCard = [];
-  let chosenCardId = [];
+  //   let chosenCard = [];
+  //   let chosenCardId = [];
 
   return (
     <div>
