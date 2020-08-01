@@ -1,9 +1,11 @@
-.App {
-  text-align: center;
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  height: 300px;
+  width: 400px;
 }
 
 .App-logo {
-  height: 40vmin;
   pointer-events: none;
 }
 
