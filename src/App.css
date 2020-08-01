@@ -1,17 +1,17 @@
 .grid {
   display: flex;
   flex-wrap: wrap;
-  height: 300px;
+  /* height: 300px; */
   width: 400px;
 }
 
 .App-logo {
-  pointer-events: none;
+  pointer-events: painted;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   }
 }
 

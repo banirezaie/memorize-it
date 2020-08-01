@@ -5,6 +5,7 @@ const Platform = () => {
   return (
     <div className="grid">
       {cards.map((x, i) => {
+        console.log(i);
         return (
           <img
             src="images/react.png"
