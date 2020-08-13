@@ -8,6 +8,7 @@ import FlipCard from "./FlitCard";
 function App() {
   return (
     <div className="App-header">
+      <h1>DIZZY MATCH</h1>
       <Score />
       <Platform />
       <FlipCard />
