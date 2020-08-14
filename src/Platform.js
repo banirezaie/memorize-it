@@ -1,27 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import cards from "./card.json";
 
 const Platform = () => {
+  const [gameCards, setGameCards] = useState(cards);
   let cardChosen = [];
+  let cardChosenIndex = [];
+
   return (
     <div className="grid">
-      {cards ? (
-        cards.map((x, i) => {
+      {gameCards ? (
+        gameCards.map((x, i) => {
           return (
             <img
               src="images/react.png"
-              id={i}
               alt="card"
               className="App-logo"
               key={i}
               onClick={(e) => {
-                console.log(cards[e.target.id].image, i, x, e.target);
+                console.log(i, x, e.target);
+                cardChosen.push(x);
+                cardChosenIndex.push(i);
                 e.target.src = x.image;
-                cardChosen.push(x.name);
-                console.log(cardChosen);
-                // if (cardChosen.length === 2) {
-                //   setTimeout(checkForMatch, 5000);
-                // }
+                if (cardChosen.length === 2) {
+                  setTimeout(() => {
+                    if (cardChosen[0].name === cardChosen[1].name) {
+                      alert("you found a match");
+                      // console.log(i, x, cards[cardChosenIndex[0]]);
+                      let notMatched = cards.filter((card) => {
+                        return card.names !== cardChosen[0].name;
+                      });
+                      cardChosen[0].image = "images/blank.png";
+                      cardChosen[1].image = "images/blank.png";
+                      return (
+                        // (cards[cardChosenIndex[0]].image = "images/blank.png"),
+                        // (cards[cardChosenIndex[1]].image = "images/blank.png"),
+                        // console.log(notMatched),
+                        setGameCards(notMatched),
+                        (cardChosen = []),
+                        (cardChosenIndex = [])
+                      );
+
+                      // cards = [...matchesRemove, ]
+                      // x.image.src = "images/blank.png";
+                      // setImageTwo("images/blank.png");
+                      // console.log(cards[cardChosenIndex[0]]);
+                    }
+                  }, 500);
+                }
               }}
             />
           );
