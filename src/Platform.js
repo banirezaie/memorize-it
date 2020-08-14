@@ -3,8 +3,8 @@ import cards from "./card.json";
 
 const Platform = () => {
   const [gameCards, setGameCards] = useState(cards);
-  let cardChosen = [];
-  let cardChosenIndex = [];
+  const [cardChosen, setCardChosen] = useState([]);
+  const [cardChosenIndex, setCardChosenIndex] = useState([]);
 
   return (
     <div className="grid">
@@ -32,18 +32,10 @@ const Platform = () => {
                       cardChosen[0].image = "images/blank.png";
                       cardChosen[1].image = "images/blank.png";
                       return (
-                        // (cards[cardChosenIndex[0]].image = "images/blank.png"),
-                        // (cards[cardChosenIndex[1]].image = "images/blank.png"),
-                        // console.log(notMatched),
                         setGameCards(notMatched),
-                        (cardChosen = []),
-                        (cardChosenIndex = [])
+                        setCardChosen([]),
+                        setCardChosenIndex([])
                       );
-
-                      // cards = [...matchesRemove, ]
-                      // x.image.src = "images/blank.png";
-                      // setImageTwo("images/blank.png");
-                      // console.log(cards[cardChosenIndex[0]]);
                     }
                   }, 500);
                 }
