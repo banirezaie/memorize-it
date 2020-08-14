@@ -17,15 +17,16 @@ const Platform = () => {
               className="App-logo"
               key={i}
               onClick={(e) => {
-                console.log(i, x, e.target);
-                cardChosen.push(x);
-                cardChosenIndex.push(i);
+                // console.log(i, x, e.target);
+                setCardChosen([...cardChosen, x]);
+                setCardChosenIndex([...cardChosenIndex, i]);
                 e.target.src = x.image;
+                console.log(cardChosen);
                 if (cardChosen.length === 2) {
                   setTimeout(() => {
                     if (cardChosen[0].name === cardChosen[1].name) {
                       alert("you found a match");
-                      // console.log(i, x, cards[cardChosenIndex[0]]);
+                      console.log(i, x, cards[cardChosenIndex[0]]);
                       let notMatched = cards.filter((card) => {
                         return card.names !== cardChosen[0].name;
                       });
